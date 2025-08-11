@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+
+  environment {
+    NODE_ENV = 'development'
+    API_URL = 'http://localhost:3000'
+  }
+
+  stages {
+
+    stage('code') {
+      steps {
+        echo "Coding Stage..."
+      }
+    }
+
+    stage('build') {
+      steps {
+        echo "Building Stage..."
+      }
+    }
+
+    stage('test') {
+      steps {
+        echo "Testing Stage..."
+      }
+    }
+
+    stage('deploy') {
+      steps {
+        echo "Deploying Stage..."
+      }
+    }
+
+  }
+}

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajeev Kumar | AWS DevOps Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="#home" class="text-xl font-bold gradient-text">Rajeev Kumar</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">About</a>
+          <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Skills</a>
+          <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Projects</a>
+          <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600">Experience</a>
+          <a href="#certifications" class="nav-link text-gray-700 hover:text-blue-600">Certifications</a>
+          <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+              </path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
+        <a href="#about"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">About</a>
+        <a href="#skills"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Skills</a>
+        <a href="#projects"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Projects</a>
+        <a href="#experience"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Experience</a>
+        <a href="#certifications"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Certifications</a>
+        <a href="#contact"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-gradient pt-24 pb-20 md:pt-32 md:pb-28 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Rajeev
+              Kumar</span></h1>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-6">AWS DevOps Engineer</h2>
+          <p class="text-lg mb-8 text-gray-200">I design, implement, and maintain robust cloud infrastructure and
+            CI/CD pipelines. Passionate about automation, scalability, and building efficient deployment workflows.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#contact"
+              class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300">Hire
+              Me</a>
+            <a href="#projects"
+              class="border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition duration-300">View
+              Work</a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative">
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-blue-500 opacity-20 absolute -top-6 -left-6"></div>
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-purple-500 opacity-20 absolute -bottom-6 -right-6">
+            </div>
+            <img src="https://rajeevxportfolio.netlify.app/images/pictures/profile-pic%20(1)%20(1).png"
+              alt="Rajeev Kumar"
+              class="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white shadow-xl">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+          <img src="https://avatars.githubusercontent.com/u/114682224?v=4" alt="Rajeev Kumar"
+            class="w-64 h-64 rounded-full object-cover border-4 border-blue-100 shadow-lg">
+        </div>
+        <div class="md:w-2/3 md:pl-12">
+          <h3 class="text-2xl font-semibold mb-4">Cloud & DevOps Specialist</h3>
+          <p class="text-gray-600 mb-6">I'm an AWS Certified DevOps Engineer with expertise in designing and
+            implementing cloud infrastructure, CI/CD pipelines, and automation solutions. With a strong foundation in
+            Linux, containerization, and infrastructure as code, I help organizations achieve scalable, reliable, and
+            secure cloud environments.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Name:</h4>
+              <p class="text-gray-600">Rajeev Kumar</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Email:</h4>
+              <p class="text-gray-600">rajeevkumar@example.com</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">From:</h4>
+              <p class="text-gray-600">India</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Experience:</h4>
+              <p class="text-gray-600">2+ Years in DevOps</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="https://github.com/elonerajeev" target="_blank"
+              class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg flex items-center transition duration-300">
+              <i class="fab fa-github mr-2"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/rajeev-kumar-2209b1243/" target="_blank"
+              class="bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-lg flex items-center transition duration-300">
+              <i class="fab fa-linkedin mr-2"></i> LinkedIn
+            </a>
+            <a href="https://rajeevxportfolio.netlify.app/" target="_blank"
+              class="bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded-lg flex items-center transition duration-300">
+              <i class="fas fa-globe mr-2"></i> Portfolio
+            </a>
+            <a href="#"
+              class="bg-green-100 hover:bg-green-200 text-green-800 px-4 py-2 rounded-lg flex items-center transition duration-300">
+              <i class="fas fa-file-pdf mr-2"></i> Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Skills</span></h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Cloud Platforms -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-orange-500 text-4xl mb-4">
+            <i class="fab fa-aws"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">AWS</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-orange-500 h-2.5 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+
+        <!-- CI/CD Tools -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-red-500 text-4xl mb-4">
+            <i class="fab fa-jenkins"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Jenkins</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-red-500 h-2.5 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <!-- Infrastructure as Code -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-purple-600 text-4xl mb-4">
+            <i class="fas fa-code-branch"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Terraform</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-purple-600 h-2.5 rounded-full" style="width: 80%"></div>
+          </div>
+        </div>
+
+        <!-- Containerization -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-blue-400 text-4xl mb-4">
+            <i class="fab fa-docker"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Docker</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-blue-400 h-2.5 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <!-- Orchestration -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-blue-600 text-4xl mb-4">
+            <i class="fas fa-ship"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Kubernetes</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <!-- Version Control -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-orange-600 text-4xl mb-4">
+            <i class="fab fa-git-alt"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Git</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-orange-600 h-2.5 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+
+        <!-- Scripting -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-yellow-500 text-4xl mb-4">
+            <i class="fab fa-linux"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Bash Scripting</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 80%"></div>
+          </div>
+        </div>
+
+        <!-- Monitoring -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-green-500 text-4xl mb-4">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Prometheus</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div>
+          </div>
+        </div>
+
+        <!-- Logging -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-red-600 text-4xl mb-4">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">ELK Stack</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-red-600 h-2.5 rounded-full" style="width: 65%"></div>
+          </div>
+        </div>
+
+        <!-- Configuration Management -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-blue-700 text-4xl mb-4">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Ansible</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-blue-700 h-2.5 rounded-full" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <!-- Cloud Platforms -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-blue-500 text-4xl mb-4">
+            <i class="fab fa-microsoft"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Azure</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+          </div>
+        </div>
+
+        <!-- Cloud Platforms -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-cyan-500 text-4xl mb-4">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Google Cloud</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-cyan-500 h-2.5 rounded-full" style="width: 65%"></div>
+          </div>
+        </div>
+
+        <!-- Programming Languages -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-green-600 text-4xl mb-4">
+            <i class="fab fa-java"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Java</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-green-600 h-2.5 rounded-full" style="width: 70%"></div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-item bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <div class="text-yellow-600 text-4xl mb-4">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">MongoDB</h3>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-yellow-600 h-2.5 rounded-full" style="width: 80%"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          My <span class="gradient-text">Projects</span> 🚀
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="project-card bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 p-6">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+            alt="Serverless Web Application on AWS Screenshot" class="rounded-lg mb-4 object-cover w-full h-48">
+          <h3 class="text-xl font-semibold mb-2">⚡ Serverless Web Application on AWS</h3>
+          <p class="text-gray-700 mb-4">
+            Built a highly scalable serverless web app using AWS Lambda, API Gateway, DynamoDB, and S3. Designed
+            infrastructure with IaC and automated deployment pipelines. ☁️🔧
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/elonerajeev/serverless-web-app-aws" target="_blank"
+              class="text-blue-600 hover:underline font-medium">GitHub</a>
+            <a href="#" target="_blank" class="text-purple-600 hover:underline font-medium">Live Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 p-6">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+            alt="Deployed E-Commerce MERN App Screenshot" class="rounded-lg mb-4 object-cover w-full h-48">
+          <h3 class="text-xl font-semibold mb-2">🛒 Deployed E-Commerce MERN App With CI/CD Pipeline and IaC</h3>
+          <p class="text-gray-700 mb-4">
+            Developed a full MERN stack e-commerce application with automated CI/CD pipelines and Infrastructure as
+            Code using Terraform and GitHub Actions. 🔄💻
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/elonerajeev/mern-ecommerce-ci-cd" target="_blank"
+              class="text-blue-600 hover:underline font-medium">GitHub</a>
+            <a href="#" target="_blank" class="text-purple-600 hover:underline font-medium">Live Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 p-6">
+          <img src="https://images.unsplash.com/photo-1506702315536-dd8b83e2dcf9?auto=format&fit=crop&w=400&q=80"
+            alt="Cloud-Native Microservices Platform Screenshot" class="rounded-lg mb-4 object-cover w-full h-48">
+          <h3 class="text-xl font-semibold mb-2">☁️ Cloud-Native Microservices Platform with Automated CI/CD</h3>
+          <p class="text-gray-700 mb-4">
+            Architected a cloud-native microservices platform with container orchestration, automated CI/CD pipelines,
+            and monitoring using Kubernetes, Docker, and Jenkins. 🐳📦
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/elonerajeev/cloud-native-microservices" target="_blank"
+              class="text-blue-600 hover:underline font-medium">GitHub</a>
+            <a href="#" target="_blank" class="text-purple-600 hover:underline font-medium">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          My <span class="gradient-text">Experience</span> 🚀
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+
+      <div class="space-y-12">
+        <!-- AWS DevOps Engineer (Current Focus) -->
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-2">AWS DevOps Engineer (Current Focus) 🔧☁️</h3>
+          <p class="text-gray-500 text-sm mb-4">Building scalable cloud infrastructure and automating deployments.</p>
+        </div>
+
+        <!-- ProfCess (Software Development Intern - AWS Cloud) -->
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-2">Software Development Intern (AWS Cloud) ☁️</h3>
+          <p class="text-gray-500 text-sm mb-2">Prof-Cess</p>
+          <p class="text-gray-700 mb-4">May 2025 – Aug 2025</p>
+          <ul class="list-disc pl-6 text-gray-700">
+            <li>Implemented cloud-based solutions on AWS to optimize deployment pipelines.</li>
+            <li>Worked on infrastructure as code (IaC) using Terraform and AWS CloudFormation.</li>
+            <li>Monitored and maintained AWS services ensuring high availability and security.</li>
+          </ul>
+        </div>
+
+        <!-- Full-Stack Development Intern -->
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-2">Full-Stack Development Intern 💻</h3>
+          <p class="text-gray-500 text-sm mb-2">Zetron Networks Pvt. Ltd.</p>
+          <p class="text-gray-700 mb-4">May 2024 – June 2024</p>
+          <ul class="list-disc pl-6 text-gray-700">
+            <li>Developed web applications using MERN stack focusing on user experience and performance.</li>
+            <li>Collaborated with design and backend teams to deliver new product features.</li>
+            <li>Enhanced application scalability and optimized database queries in MongoDB.</li>
+          </ul>
+        </div>
+
+        <!-- Software Development Intern -->
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-2">Software Development Intern</h3>
+          <p class="text-gray-500 text-sm mb-2">InfoTech</p>
+          <p class="text-gray-700 mb-4">Jan 2024 – Feb 2024</p>
+          <ul class="list-disc pl-6 text-gray-700">
+            <li>Assisted in development and testing of web applications using JavaScript and ReactJS.</li>
+            <li>Participated in daily scrums and contributed to agile development cycles.</li>
+            <li>Improved application performance by refactoring legacy code.</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <!-- Certification Section -->
+  <section id="certifications" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          My <span class="gradient-text">Certifications</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Certification 1 -->
+        <div class="cert-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">AWS Certified Solutions Architect – Associate</h3>
+          <p class="text-gray-600 mb-2">Amazon Web Services</p>
+          <p class="text-gray-500 text-sm">Issued: March 2024</p>
+          <a href="https://www.credly.com/badges/your-aws-certification-link" target="_blank"
+            class="text-blue-600 hover:underline mt-3 inline-block font-medium">View Certificate</a>
+        </div>
+
+        <!-- Certification 2 -->
+        <div class="cert-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Docker Certified Associate</h3>
+          <p class="text-gray-600 mb-2">Docker Inc.</p>
+          <p class="text-gray-500 text-sm">Issued: January 2024</p>
+          <a href="https://www.credly.com/badges/your-docker-certification-link" target="_blank"
+            class="text-blue-600 hover:underline mt-3 inline-block font-medium">View Certificate</a>
+        </div>
+
+        <!-- Certification 3 -->
+        <div class="cert-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Certified Kubernetes Administrator (CKA)</h3>
+          <p class="text-gray-600 mb-2">Cloud Native Computing Foundation</p>
+          <p class="text-gray-500 text-sm">Issued: April 2025</p>
+          <a href="https://www.credly.com/badges/your-cka-certification-link" target="_blank"
+            class="text-blue-600 hover:underline mt-3 inline-block font-medium">View Certificate</a>
+        </div>
+
+        <!-- Add more certifications as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Get in <span class="gradient-text">Touch</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+
+      <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+        <form action="mailto:your-email@example.com" method="POST" enctype="text/plain" class="space-y-6">
+          <div>
+            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+            <input type="text" id="name" name="name" required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+          <div>
+            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input type="email" id="email" name="email" required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+          <div>
+            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+
+          <button type="submit"
+            class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-md font-semibold hover:from-purple-600 hover:to-blue-500 transition">
+            Send Message
+          </button>
+        </form>
+
+        <div class="mt-8 flex justify-center space-x-6 text-gray-600">
+          <a href="https://www.linkedin.com/in/rajeev-kumar-2209b1243" target="_blank" rel="noopener noreferrer"
+            class="hover:text-blue-600 transition">
+            <i class="fab fa-linkedin fa-2x"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://github.com/elonerajeev" target="_blank" rel="noopener noreferrer"
+            class="hover:text-gray-900 transition">
+            <i class="fab fa-github fa-2x"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+          <!-- Add more social icons if you want -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-900 text-gray-300 py-8 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm mb-4 md:mb-0">
+        © 2025 Rajeev Kumar (Elone.rajeev). All rights reserved.
+      </p>
+      <div class="flex space-x-6">
+        <a href="https://www.linkedin.com/in/rajeev-kumar-2209b1243" target="_blank" rel="noopener noreferrer"
+          class="hover:text-white transition">
+          <i class="fab fa-linkedin fa-lg"></i>
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <a href="https://github.com/elonerajeev" target="_blank" rel="noopener noreferrer"
+          class="hover:text-white transition">
+          <i class="fab fa-github fa-lg"></i>
+          <span class="sr-only">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</html>
