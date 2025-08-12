@@ -1,36 +1,267 @@
+//...........................DEVOPS PIPELINES (NO SECURITY)...................
 pipeline {
   agent any
 
   environment {
     NODE_ENV = 'development'
     API_URL = 'http://localhost:3000'
+    DOCKER_CREDENTIALS = credentials('dockerhub')
+    DOCKER_IMAGE = 'nodeimagejenkins'
   }
 
   stages {
-
-    stage('code') {
+    stage('Checkout Code') {
       steps {
-        echo "Coding Stage..."
+        git url: 'https://github.com/elonerajeev/DevSecOps-Pipeline-For-Node-App.git',
+             branch: 'main'
       }
     }
 
-    stage('build') {
+    stage('Install Dependencies') {
       steps {
-        echo "Building Stage..."
+        sh 'npm install'
       }
     }
 
-    stage('test') {
+    stage('Run Tests') {
       steps {
-        echo "Testing Stage..."
+        sh 'npm test'
       }
     }
 
-    stage('deploy') {
+    stage('Build Docker Image') {
       steps {
-        echo "Deploying Stage..."
+        sh "docker build -t ${env.DOCKER_IMAGE} ."
       }
     }
 
+    stage('Push Docker Image') {
+      steps {
+        script {
+          withCredentials([usernamePassword(
+            credentialsId: 'dockerhub',
+            usernameVariable: 'DOCKER_USERNAME',
+            passwordVariable: 'DOCKER_PASSWORD'
+          )]) {
+            sh "echo ${env.DOCKER_PASSWORD} | docker login -u ${env.DOCKER_USERNAME} --password-stdin"
+            sh "docker tag ${env.DOCKER_IMAGE}:latest ${env.DOCKER_USERNAME}/${env.DOCKER_IMAGE}:latest"
+            sh "docker push ${env.DOCKER_USERNAME}/${env.DOCKER_IMAGE}:latest"
+          }
+        }
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        script {
+          withCredentials([usernamePassword(
+            credentialsId: 'dockerhub',
+            usernameVariable: 'DOCKER_USERNAME',
+            passwordVariable: 'DOCKER_PASSWORD'
+          )]) {
+            sh """
+              docker stop ${env.DOCKER_IMAGE} || true
+              docker rm ${env.DOCKER_IMAGE} || true
+              docker run -d -p 3000:3000 --name ${env.DOCKER_IMAGE} \$DOCKER_USERNAME/${env.DOCKER_IMAGE}:latest
+            """
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      echo 'Cleaning up workspace'
+      cleanWs()
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//...........................DEVSECOPS PIPELINES ...................
+pipeline {
+  agent any
+
+  environment {
+    NODE_ENV = 'development'
+    API_URL = 'http://localhost:3000'
+    DOCKER_CREDENTIALS = credentials('dockerhub')
+    DOCKER_IMAGE = 'nodeimagejenkins'
+    // Security Tools Configuration
+    SONARQUBE_SCANNER_HOME = tool 'sonar-scanner'
+    OWASP_DEPENDENCY_CHECK_HOME = tool 'owasp-dependency-check'
+    TRIVY_HOME = tool 'trivy'
+  }
+
+  stages {
+    /* --- Source Code Stage --- */
+    stage('Checkout Code') {
+      steps {
+        git url: 'https://github.com/elonerajeev/DevSecOps-Pipeline-For-Node-App.git',
+             branch: 'main'
+      }
+    }
+
+    /* --- SAST (Static Analysis) --- */
+    stage('SonarQube Analysis') {
+      steps {
+        script {
+          withSonarQubeEnv('sonarqube-server') { // Configured in Jenkins Global Settings
+            sh """
+              ${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner \
+              -Dsonar.projectKey=node-app \
+              -Dsonar.sources=. \
+              -Dsonar.host.url=${SONARQUBE_URL} \
+              -Dsonar.login=${SONARQUBE_TOKEN}
+            """
+          }
+        }
+      }
+    }
+
+    /* --- Dependency Check --- */
+    stage('OWASP Dependency-Check') {
+      steps {
+        sh """
+          ${OWASP_DEPENDENCY_CHECK_HOME}/bin/dependency-check.sh \
+          --project "NodeJS App" \
+          --scan . \
+          --format HTML \
+          --out ./reports/dependency-check
+        """
+        archiveArtifacts artifacts: 'reports/dependency-check/*.html'
+      }
+    }
+
+    /* --- Build & Test --- */
+    stage('Install Dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+    stage('Run Tests') {
+      steps {
+        sh 'npm test'
+      }
+    }
+
+    /* --- Building Docker Images --- */
+    stage('Build Docker Image') {
+      steps {
+        sh "docker build -t ${env.DOCKER_IMAGE} ."
+      }
+    }
+
+    /* --- Container Security --- */
+    stage('Trivy Image Scan') {
+      steps {
+        sh """
+          ${TRIVY_HOME}/trivy image --severity CRITICAL \
+          --exit-code 1 \
+          --format template \
+          --template "@contrib/html.tpl" \
+          -o ./reports/trivy-report.html \
+          ${env.DOCKER_IMAGE}
+        """
+        archiveArtifacts artifacts: 'reports/trivy-report.html'
+      }
+    }
+
+
+
+    /* --- DAST (Dynamic Analysis) --- */
+    stage('OWASP ZAP Scan') {
+      steps {
+        script {
+          // Requires ZAP running in a separate container
+          sh """
+            docker run --rm -v $(pwd):/zap/wrk \
+            -t owasp/zap2docker-stable zap-baseline.py \
+            -t ${API_URL} \
+            -r zap-report.html
+          """
+          archiveArtifacts artifacts: 'zap-report.html'
+        }
+      }
+    }
+
+    /* --- Deployment --- */
+    stage('Push Docker Image') {
+      steps {
+        script {
+          withCredentials([usernamePassword(
+            credentialsId: 'dockerhub',
+            usernameVariable: 'DOCKER_USERNAME',
+            passwordVariable: 'DOCKER_PASSWORD'
+          )]) {
+            sh """
+              echo ${env.DOCKER_PASSWORD} | docker login -u ${env.DOCKER_USERNAME} --password-stdin
+              docker tag ${env.DOCKER_IMAGE}:latest ${env.DOCKER_USERNAME}/${env.DOCKER_IMAGE}:latest
+              docker push ${env.DOCKER_USERNAME}/${env.DOCKER_IMAGE}:latest
+            """
+          }
+        }
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        script {
+          withCredentials([usernamePassword(
+            credentialsId: 'dockerhub',
+            usernameVariable: 'DOCKER_USERNAME',
+            passwordVariable: 'DOCKER_PASSWORD'
+          )]) {
+            sh """
+              docker stop ${env.DOCKER_IMAGE} || true
+              docker rm ${env.DOCKER_IMAGE} || true
+              docker run -d -p 3000:3000 --name ${env.DOCKER_IMAGE} \
+              ${env.DOCKER_USERNAME}/${env.DOCKER_IMAGE}:latest
+            """
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      // Quality Gate Check (breaks build if SonarQube quality gate fails)
+      script {
+        timeout(time: 1, unit: 'MINUTES') {
+          waitForQualityGate abortPipeline: true
+        }
+      }
+      // Cleanup and Archive Reports
+      archiveArtifacts artifacts: 'reports/**/*.html'
+      cleanWs()
+    }
+    failure {
+      emailext (
+        subject: "FAILED: Job '${env.JOB_NAME}' (${env.BUILD_NUMBER})",
+        body: """Check console output at ${env.BUILD_URL}""",
+        to: "elonerajeev@gmail.com"
+      )
+    }
   }
 }
