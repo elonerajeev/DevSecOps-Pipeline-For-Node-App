@@ -13,7 +13,8 @@
 Run these commands on your Jenkins server:
 
 ```bash
-RUN script.sh
+chmod u+x script.sh
+./script.sh
 ```
 
 ---
